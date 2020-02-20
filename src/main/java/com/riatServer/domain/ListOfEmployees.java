@@ -36,6 +36,12 @@ public class ListOfEmployees implements Serializable {
     @Column(updatable = true, nullable = true)
     private  boolean active;
 
+    @Column(updatable = false, insertable = false, nullable = false, name = "taskStatus_id")
+    private  long taskStatusId;
+
+    @ManyToOne
+    @JoinColumn(name = "taskStatus_id")
+    private TaskStatus taskStatus_id;
 
     @Column(updatable = false, nullable = false, name="create_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
@@ -109,5 +115,21 @@ public class ListOfEmployees implements Serializable {
 
     public void setUpdateDate(LocalDateTime updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public long getTaskStatusId() {
+        return taskStatusId;
+    }
+
+    public void setTaskStatusId(long taskStatusId) {
+        this.taskStatusId = taskStatusId;
+    }
+
+    public TaskStatus getTaskStatus_id() {
+        return taskStatus_id;
+    }
+
+    public void setTaskStatus_id(TaskStatus taskStatus_id) {
+        this.taskStatus_id = taskStatus_id;
     }
 }

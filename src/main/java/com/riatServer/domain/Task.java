@@ -25,6 +25,11 @@ public class Task implements Serializable {
     @Column(updatable = true, nullable = true)
     private String description;
 
+    @Column(updatable = true, nullable = true)
+    private boolean templateTask;
+
+
+
     @Column(name="term_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime termDate;
@@ -84,5 +89,21 @@ public class Task implements Serializable {
 
     public void setUpdateDate(LocalDateTime updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public boolean isTemplateTask() {
+        return templateTask;
+    }
+
+    public void setTemplateTask(boolean templateTask) {
+        this.templateTask = templateTask;
+    }
+
+    public LocalDateTime getTermDate() {
+        return termDate;
+    }
+
+    public void setTermDate(LocalDateTime termDate) {
+        this.termDate = termDate;
     }
 }

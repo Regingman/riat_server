@@ -42,11 +42,11 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\project\ProjectGit\riat_server" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="riat.example.com.domain" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\project\ProjectGit\riat_server" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -90,6 +90,26 @@
       <workItem from="1581157163370" duration="1211000" />
       <workItem from="1581158475651" duration="80000" />
       <workItem from="1581158602169" duration="231000" />
+      <workItem from="1581159269202" duration="11000" />
+      <workItem from="1581159405352" duration="155000" />
+      <workItem from="1581160833839" duration="9000" />
+      <workItem from="1581319339765" duration="798000" />
+      <workItem from="1581321741743" duration="775000" />
+      <workItem from="1581337402496" duration="26000" />
+      <workItem from="1581938043727" duration="374000" />
+      <workItem from="1581939012649" duration="25000" />
+      <workItem from="1582095836883" duration="1199000" />
+      <workItem from="1582097183200" duration="2193000" />
+      <workItem from="1582100052230" duration="1790000" />
+      <workItem from="1582102052375" duration="1781000" />
+      <workItem from="1582104052385" duration="1674000" />
+      <workItem from="1582106610105" duration="1425000" />
+      <workItem from="1582112665127" duration="1773000" />
+      <workItem from="1582114469348" duration="1635000" />
+      <workItem from="1582116832273" duration="1774000" />
+      <workItem from="1582119046075" duration="1068000" />
+      <workItem from="1582120871590" duration="1587000" />
+      <workItem from="1582172787062" duration="32000" />
     </task>
     <servers />
   </component>

@@ -31,7 +31,7 @@ public class ListOfTask implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "subtask_id")
-    private Subtask subtask;
+    private Task subtask;
 
 
     @Column(name="create_date")
@@ -43,6 +43,7 @@ public class ListOfTask implements Serializable {
     private LocalDateTime updateDate;
 
     //getters and setter
+
 
     public long getId() {
         return id;
@@ -75,15 +76,15 @@ public class ListOfTask implements Serializable {
     public void setSubtaskId(long subtaskId) {
         this.subtaskId = subtaskId;
     }
-/*
-    public Subtask getSubtask() {
+
+    public Task getSubtask() {
         return subtask;
     }
 
-    public void setSubtask(Subtask subtask) {
+    public void setSubtask(Task subtask) {
         this.subtask = subtask;
     }
-*/
+
     public LocalDateTime getCreateDate() {
         return createDate;
     }

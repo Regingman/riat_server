@@ -17,6 +17,8 @@ public interface EntityService<T,S> {
 
     T save(T t);
 
+    T create(T t);
+
     void delete(S id) throws IOException, ServiceException;
 
 }

@@ -22,6 +22,9 @@ public class Mark implements Serializable {
     @Column(updatable = true, nullable = true)
     private String Name;
 
+    @Column(updatable = true, nullable = true)
+    private int period;
+
     @Column(updatable = false, nullable = false, name="create_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime createDate;
