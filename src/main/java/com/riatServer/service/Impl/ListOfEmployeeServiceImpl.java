@@ -10,11 +10,13 @@ import com.riatServer.repo.UsersRepo;
 import com.riatServer.service.EntityService;
 import com.riatServer.service.ListOfEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 public class ListOfEmployeeServiceImpl implements ListOfEmployeeService, EntityService<ListOfEmployees, Long> {
     @Autowired
     ListOfEmployeesRepo listOfEmployeesRepo;
@@ -54,5 +56,10 @@ public class ListOfEmployeeServiceImpl implements ListOfEmployeeService, EntityS
     public void delete(Long id) throws IOException, ServiceException {
         ListOfEmployees listOfEmployees = getById(id);
         listOfEmployeesRepo.delete(listOfEmployees);
+    }
+
+    @Override
+    public ListOfEmployees taskInfo(Long userId, boolean active, Long taskId) {
+        return listOfEmployeesRepo.activeTask(userId, active, taskId);
     }
 }

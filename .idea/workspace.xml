@@ -1,7 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="113a8c37-d004-4e65-9117-8b7403ad4aed" name="Default Changelist" comment="" />
+    <list default="true" id="113a8c37-d004-4e65-9117-8b7403ad4aed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/dto/AdminUserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/dto/AuthenticationRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/dto/EmployeeTaskDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/repo/RolesRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/security/JwtUserDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/security/jwt/JwtAuthenticationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/security/jwt/JwtConfigurer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/security/jwt/JwtTokenFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/security/jwt/JwtTokenProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/security/jwt/JwtUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/security/jwt/JwtUserFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/security/rest/AdminRestControllerV1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/security/rest/AuthenticationRestControllerV1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/security/rest/UserRestControllerV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/controller/ListOfEmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/controller/ListOfEmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/controller/TaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/DepartmentStaff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/DepartmentStaff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/ListOfEmployees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/ListOfEmployees.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/ListOfTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/ListOfTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/Mark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/Mark.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/PeriodicTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/PeriodicTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/TaskStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/TaskStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/repo/ListOfEmployeesRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/repo/ListOfEmployeesRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/repo/UsersRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/repo/UsersRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/riatServerApllication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/riatServerApllication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/service/Impl/ListOfEmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/service/Impl/ListOfEmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/service/Impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/service/Impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/service/ListOfEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/service/ListOfEmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/riat.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,18 +71,21 @@
     </option>
   </component>
   <component name="ProjectId" id="1XTggFXnvN2eQYKQiYYSN82oxyr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tezAl_server" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -110,6 +157,39 @@
       <workItem from="1582119046075" duration="1068000" />
       <workItem from="1582120871590" duration="1587000" />
       <workItem from="1582172787062" duration="32000" />
+      <workItem from="1582213225492" duration="1817000" />
+      <workItem from="1582265875813" duration="627000" />
+      <workItem from="1582269409856" duration="831000" />
+      <workItem from="1582275732551" duration="1735000" />
+      <workItem from="1582280654589" duration="58000" />
+      <workItem from="1582286222305" duration="1096000" />
+      <workItem from="1582442301398" duration="1688000" />
+      <workItem from="1582444436720" duration="1640000" />
+      <workItem from="1582446636235" duration="1861000" />
+      <workItem from="1582453297070" duration="1781000" />
+      <workItem from="1582455121673" duration="1791000" />
+      <workItem from="1582457249942" duration="1001000" />
+      <workItem from="1582460986876" duration="3152000" />
+      <workItem from="1582538560155" duration="1358000" />
+      <workItem from="1582698828677" duration="1397000" />
+      <workItem from="1582786402613" duration="1327000" />
+      <workItem from="1582801895534" duration="345000" />
+      <workItem from="1582802707664" duration="1760000" />
+      <workItem from="1582835338255" duration="1960000" />
+      <workItem from="1582866879265" duration="1906000" />
+      <workItem from="1582885177037" duration="1896000" />
+      <workItem from="1582894098628" duration="631000" />
+      <workItem from="1582974511704" duration="1641000" />
+      <workItem from="1582997635809" duration="1785000" />
+      <workItem from="1583047943817" duration="592000" />
+      <workItem from="1583050521562" duration="957000" />
+      <workItem from="1583052809528" duration="1790000" />
+      <workItem from="1583055157005" duration="1847000" />
+      <workItem from="1583057081059" duration="1196000" />
+      <workItem from="1583070960950" duration="683000" />
+      <workItem from="1585131351191" duration="782000" />
+      <workItem from="1585462005681" duration="1110000" />
+      <workItem from="1585464211735" duration="599000" />
     </task>
     <servers />
   </component>

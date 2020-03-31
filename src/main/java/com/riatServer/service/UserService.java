@@ -1,5 +1,7 @@
 package com.riatServer.service;
 
-public interface UserService {
+import com.riatServer.domain.User;
 
+public interface UserService {
+    User register(User user);
 }

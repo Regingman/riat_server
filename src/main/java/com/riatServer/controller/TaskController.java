@@ -38,7 +38,14 @@ public class TaskController {
         return new ResponseEntity<>(tasks, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Получения списка всех подзадач одной задачи")
+    @ApiOperation(value = "Получения списка всех задач")
+    @GetMapping("{id}")
+    public ResponseEntity<Task> List(@PathVariable("id") Long id){
+        Task task = taskService.getById(id);
+        return new ResponseEntity<>(task, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "Получения списка вsсех подзадач одной задачи")
     @GetMapping("subTask/{id}")
     public ResponseEntity<List<Task>> allSubTaskToTask(@PathVariable("id") Long taskId){
         List<Task> tasks = taskService.getAllSubTaskToTask(taskId);
@@ -84,14 +91,14 @@ public class TaskController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Сохранение шаблонной задачи")
+    @ApiOperation(value = "Сохранение периодичной задачи")
     @PostMapping("period/{markId}/{taskId}")
     public ResponseEntity<Task> setPeriodicTask(@PathVariable("markId") Long markId, @PathVariable("taskId") Long taskId){
         taskService.setPeriodicTask(markId, taskId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Сохранение шаблонной задачи")
+    @ApiOperation(value = "Изменение статуса задачи")
     @PostMapping("status/{taskId}/{userId}/{taskStatusId}")
     public ResponseEntity<Task> setTaskStatus(
             @PathVariable("taskId") Long taskId,

@@ -1,6 +1,8 @@
 package com.riatServer.controller;
 
+import com.riatServer.domain.Position;
 import com.riatServer.domain.User;
+import com.riatServer.repo.PositionsRepo;
 import com.riatServer.repo.UsersRepo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -10,6 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Api(description = "Операции по взаимодействию с отделами")
@@ -17,11 +22,16 @@ import java.util.List;
 @RequestMapping("user")
 public class UserController {
     private final UsersRepo userRepo;
+    private final PositionsRepo positionRepo;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     @Autowired
-    public UserController(UsersRepo usersRepo)
+    public UserController(UsersRepo usersRepo, PositionsRepo positionRepo, BCryptPasswordEncoder bCryptPasswordEncoder)
     {
         this.userRepo = usersRepo;
+        this.positionRepo = positionRepo;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @ApiOperation(value = "Получения списка всех отделов")
@@ -33,6 +43,15 @@ public class UserController {
         }
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
+
+
+    @ApiOperation(value = "Получения списка всех отделов")
+    @GetMapping("{id}")
+    public ResponseEntity<User> List(@PathVariable("id") Long id){
+        User user = userRepo.getOne(id);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
 
     @ApiOperation(value = "Создание отдела")
     @PostMapping
@@ -71,4 +90,15 @@ public class UserController {
         return  new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @ApiOperation(value = "Регистрация пользователя (необходима для создания учетной записи администратора после установки системы, после должна быть удалена)")
+    @PostMapping("/sign-up")
+    public void signUp(@RequestBody User user) {
+        if(userRepo.findByName(user.getName()) == null){
+            Position role = positionRepo.findById(user.getPositionId()).orElse(null);
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            user.setPosition_id(role);
+            user.setCreateDate(LocalDateTime.now());
+            userRepo.save(user);
+        }
+    }
 }

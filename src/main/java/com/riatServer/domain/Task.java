@@ -28,18 +28,19 @@ public class Task implements Serializable {
     @Column(updatable = true, nullable = true)
     private boolean templateTask;
 
-
+    @Column(updatable = true, nullable = true)
+    private float procent;
 
     @Column(name="term_date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-dd-MM HH:mm:ss")
     private LocalDateTime termDate;
 
     @Column(name="create_date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createDate;
 
     @Column(name="update_date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updateDate;
     //getters and setter
 
@@ -105,5 +106,13 @@ public class Task implements Serializable {
 
     public void setTermDate(LocalDateTime termDate) {
         this.termDate = termDate;
+    }
+
+    public float getProcent() {
+        return procent;
+    }
+
+    public void setProcent(float procent) {
+        this.procent = procent;
     }
 }

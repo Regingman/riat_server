@@ -33,6 +33,13 @@ public class ListOfEmployees implements Serializable {
     @JoinColumn(name = "user_id")
     private User user_id;
 
+    @Column(updatable = false, insertable = false, nullable = false, name = "owner_id")
+    private  long ownerId;
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private User owner_id;
+
     @Column(updatable = true, nullable = true)
     private  boolean active;
 
@@ -44,11 +51,11 @@ public class ListOfEmployees implements Serializable {
     private TaskStatus taskStatus_id;
 
     @Column(updatable = false, nullable = false, name="create_date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createDate;
 
     @Column(name="update_date")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updateDate;
 
     //getters and setter
@@ -131,5 +138,21 @@ public class ListOfEmployees implements Serializable {
 
     public void setTaskStatus_id(TaskStatus taskStatus_id) {
         this.taskStatus_id = taskStatus_id;
+    }
+
+    public long getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(long ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public User getOwner_id() {
+        return owner_id;
+    }
+
+    public void setOwner_id(User owner_id) {
+        this.owner_id = owner_id;
     }
 }
