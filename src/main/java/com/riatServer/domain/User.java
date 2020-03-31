@@ -56,15 +56,15 @@ public class User implements Serializable {
     }
 
     public void setName(String name) {
-        Name = name;
+        this.Name = name;
     }
 
-    public String getTelephon() {
+    public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephon(String telephon) {
-        this.telephone = telephon;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public long getPositionId() {
@@ -98,4 +98,5 @@ public class User implements Serializable {
     public void setUpdateDate(LocalDateTime updateDate) {
         this.updateDate = updateDate;
     }
+
 }

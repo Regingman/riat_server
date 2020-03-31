@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="113a8c37-d004-4e65-9117-8b7403ad4aed" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="113a8c37-d004-4e65-9117-8b7403ad4aed" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/repo/UsersRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/repo/UsersRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/riatServer/riatServerApllication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/riatServer/riatServerApllication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/riat.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +39,16 @@
   </component>
   <component name="ProjectId" id="1XTggFXnvN2eQYKQiYYSN82oxyr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -39,36 +59,41 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="riat.example.com.domain" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Diploma\riat_server" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\project\ProjectGit\riat_server" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
-    <configuration name="riatServerApllication" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.riatServer.riatServerApllication" />
-      <module name="riat" />
+    <configuration name="riatServerApllication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="riat_server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.riatServer.riatServerApllication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -110,6 +135,18 @@
       <workItem from="1582119046075" duration="1068000" />
       <workItem from="1582120871590" duration="1587000" />
       <workItem from="1582172787062" duration="32000" />
+      <workItem from="1582523470826" duration="3849000" />
+      <workItem from="1582534736060" duration="666000" />
+      <workItem from="1582694138195" duration="1875000" />
+      <workItem from="1582697771377" duration="2820000" />
+      <workItem from="1582895098679" duration="3454000" />
+      <workItem from="1583233433324" duration="1217000" />
+      <workItem from="1583235908705" duration="2806000" />
+      <workItem from="1583302125430" duration="1076000" />
+      <workItem from="1583404936285" duration="5957000" />
+      <workItem from="1583502616980" duration="8594000" />
+      <workItem from="1583590839289" duration="6176000" />
+      <workItem from="1583604223369" duration="1488000" />
     </task>
     <servers />
   </component>
@@ -128,5 +165,103 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="182" key="#Inspections" timestamp="1583302776105">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="182" key="#Inspections/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583302776105" />
+    <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583302422893">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="414" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583302422893" />
+    <state x="756" y="409" width="407" height="241" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1583502683604">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="756" y="409" width="407" height="241" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583502683604" />
+    <state x="677" y="182" key="#riatServerApllication" timestamp="1582524050414">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="677" y="182" key="#riatServerApllication/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1582524050414" />
+    <state x="739" y="265" key="FileChooserDialogImpl" timestamp="1583234477423">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="739" y="265" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583234477423" />
+    <state x="739" y="265" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1582698776512" />
+    <state width="1877" height="440" key="GridCell.Tab.0.bottom" timestamp="1583605717021">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="440" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583605717021" />
+    <state width="928" height="270" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1582900096527" />
+    <state width="1877" height="440" key="GridCell.Tab.0.center" timestamp="1583605717020">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="440" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583605717020" />
+    <state width="928" height="270" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1582900096527" />
+    <state width="1877" height="440" key="GridCell.Tab.0.left" timestamp="1583605717020">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="440" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583605717020" />
+    <state width="928" height="270" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1582900096527" />
+    <state width="1877" height="440" key="GridCell.Tab.0.right" timestamp="1583605717021">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="440" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583605717021" />
+    <state width="928" height="270" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1582900096527" />
+    <state width="1877" height="440" key="GridCell.Tab.1.bottom" timestamp="1583605608439">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="440" key="GridCell.Tab.1.bottom/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583605608439" />
+    <state width="1877" height="440" key="GridCell.Tab.1.center" timestamp="1583605608439">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="440" key="GridCell.Tab.1.center/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583605608439" />
+    <state width="1877" height="440" key="GridCell.Tab.1.left" timestamp="1583605608439">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="440" key="GridCell.Tab.1.left/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583605608439" />
+    <state width="1877" height="440" key="GridCell.Tab.1.right" timestamp="1583605608439">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="440" key="GridCell.Tab.1.right/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583605608439" />
+    <state x="490" y="179" key="Maven.ArtifactSearchDialog" timestamp="1582699039546">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="490" y="179" key="Maven.ArtifactSearchDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1582699039546" />
+    <state x="461" y="166" key="SettingsEditor" timestamp="1583426838540">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="461" y="166" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583426838540" />
+    <state width="498" height="448" key="SwitcherDM" timestamp="1583592158177">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="498" height="448" key="SwitcherDM/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583592158176" />
+    <state x="655" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1583590839330">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="655" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583590839330" />
+    <state x="655" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1582697778172" />
+    <state x="1161" y="446" width="1488" height="741" key="dock-window-1" timestamp="1583508194449">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1161" y="446" width="1488" height="741" key="dock-window-1/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583508194449" />
+    <state x="740" y="328" key="git4idea.history.wholeTree.VcsStructureChooser" timestamp="1583426834006">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="328" key="git4idea.history.wholeTree.VcsStructureChooser/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583426834006" />
+    <state x="1010" y="357" width="847" height="598" key="new project wizard" timestamp="1583595587865">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1010" y="357" width="847" height="598" key="new project wizard/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1583595587865" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1582698546639">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1582695746621" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1582698546639" />
   </component>
 </project>
