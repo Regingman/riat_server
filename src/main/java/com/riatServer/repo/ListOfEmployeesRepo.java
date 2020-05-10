@@ -17,4 +17,9 @@ public interface ListOfEmployeesRepo extends JpaRepository<ListOfEmployees, Long
     @Query("select u from ListOfEmployees u where u.taskId = ?1 and u.userId = ?2")
     ListOfEmployees changeTaskStatus(Long taskId, Long UserId);
 
+    @Query("select u from ListOfEmployees u where u.userId = ?1")
+    List<ListOfEmployees> statistic(Long UserId);
+
+
+
 }

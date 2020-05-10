@@ -115,4 +115,6 @@ public class Task implements Serializable {
     public void setProcent(float procent) {
         this.procent = procent;
     }
+
+
 }

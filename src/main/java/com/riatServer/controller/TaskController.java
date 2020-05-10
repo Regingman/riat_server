@@ -1,10 +1,16 @@
 package com.riatServer.controller;
 
+import com.riatServer.domain.ListOfEmployees;
 import com.riatServer.domain.Task;
+import com.riatServer.domain.User;
+import com.riatServer.dto.EmployeeTaskDto;
 import com.riatServer.exception.ServiceException;
 import com.riatServer.repo.TasksRepo;
+import com.riatServer.service.Impl.ListOfEmployeeServiceImpl;
 import com.riatServer.service.Impl.TaskServiceImpl;
+import com.riatServer.service.Impl.UserServiceImpl;
 import com.riatServer.service.TaskService;
+import com.riatServer.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
@@ -17,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.security.PermitAll;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Api(description = "Операции по взаимодействию с задачами")
@@ -26,6 +33,9 @@ import java.util.List;
 public class TaskController {
     @Autowired
     TaskServiceImpl taskService;
+
+    @Autowired
+    ListOfEmployeeServiceImpl listOfEmployeeService;
 
 
     @ApiOperation(value = "Получения списка всех задач")
@@ -44,6 +54,20 @@ public class TaskController {
         Task task = taskService.getById(id);
         return new ResponseEntity<>(task, HttpStatus.OK);
     }
+
+    @ApiOperation(value = "Получения задачи юзера")
+    @GetMapping("user/{id}/{userId}")
+    public ResponseEntity<EmployeeTaskDto> List(@PathVariable("id") Long id, @PathVariable("userId") Long userId){
+        Task task = taskService.getById(id);
+        ListOfEmployees user = listOfEmployeeService.taskInfo(userId, true, id);
+        if(user == null){
+            user = listOfEmployeeService.taskInfo(userId, false, id);
+        }
+        EmployeeTaskDto taskUser = EmployeeTaskDto.fromUser(user, task);
+        System.out.println(user);
+        return new ResponseEntity<>(taskUser, HttpStatus.OK);
+    }
+
 
     @ApiOperation(value = "Получения списка вsсех подзадач одной задачи")
     @GetMapping("subTask/{id}")
@@ -66,22 +90,23 @@ public class TaskController {
 
     @ApiOperation(value = "Получения списка всех активных задач сотрудника")
     @GetMapping("employee/{id}/active")
-    public ResponseEntity<List<Task>> listOfAllActiveTaskByEmployee(@PathVariable("id") Long userId){
-        List<Task> tasks = taskService.listOfAllActiveTaskByEmployee(userId);
+    public ResponseEntity<List<EmployeeTaskDto>> listOfAllActiveTaskByEmployee(@PathVariable("id") Long userId){
+        List<EmployeeTaskDto> tasks = taskService.listOfAllActiveTaskByEmployee(userId);
         if(tasks.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+
         return new ResponseEntity<>(tasks, HttpStatus.OK);
     }
 
     @ApiOperation(value = "Получения списка всех неактивных задач сотрудника")
     @GetMapping("employee/{id}/inactive")
-    public ResponseEntity<List<Task>> listOfAllInactiveTaskByEmployee(@PathVariable("id") Long userId){
-        List<Task> tasks = taskService.listOfAllInactiveTaskByEmployee(userId);
-        if(tasks.isEmpty()){
+    public ResponseEntity<List<EmployeeTaskDto>> listOfAllInactiveTaskByEmployee(@PathVariable("id") Long userId){
+        List<EmployeeTaskDto> taskEmployee = taskService.listOfAllInactiveTaskByEmployee(userId);
+        if(taskEmployee.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(tasks, HttpStatus.OK);
+        return new ResponseEntity<>(taskEmployee, HttpStatus.OK);
     }
 
     @ApiOperation(value = "Сохранение шаблонной задачи")

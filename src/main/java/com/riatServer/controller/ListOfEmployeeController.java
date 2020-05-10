@@ -1,9 +1,15 @@
 package com.riatServer.controller;
 
+import ch.qos.logback.classic.joran.ReconfigureOnChangeTaskListener;
 import com.riatServer.domain.ListOfEmployees;
+import com.riatServer.domain.Task;
+import com.riatServer.domain.TaskStatus;
 import com.riatServer.dto.EmployeeTaskDto;
+import com.riatServer.dto.StatisticDto;
 import com.riatServer.exception.ServiceException;
+import com.riatServer.repo.TaskStatusRepo;
 import com.riatServer.service.Impl.ListOfEmployeeServiceImpl;
+import com.riatServer.service.Impl.TaskServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
@@ -13,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Api(description = "Операции по взаимодействию с отделами")
@@ -20,30 +27,42 @@ import java.util.List;
 @RequestMapping("listOfEmployee")
 public class ListOfEmployeeController {
     private final ListOfEmployeeServiceImpl listOfEmployeeService;
+    private final TaskServiceImpl taskService;
+    private  final TaskStatusRepo taskStatus;
 
     @Autowired
-    public ListOfEmployeeController(ListOfEmployeeServiceImpl listOfEmployeeService)
+    public ListOfEmployeeController(ListOfEmployeeServiceImpl listOfEmployeeService, TaskServiceImpl taskService, TaskStatusRepo taskStatus)
     {
         this.listOfEmployeeService = listOfEmployeeService;
+        this.taskService = taskService;
+        this.taskStatus = taskStatus;
     }
 
     @ApiOperation(value = "Получения списка всех задач пользователя")
     @GetMapping("{userId}/{taskId}")
     public ResponseEntity<EmployeeTaskDto> List(@PathVariable("userId") Long userId, @PathVariable("taskId") Long taskId){
         ListOfEmployees user = listOfEmployeeService.taskInfo(userId, true, taskId);
-        System.out.println(user);
-        EmployeeTaskDto task = EmployeeTaskDto.fromUser(user);
+        Task taskTemp = taskService.getById(taskId);
+        EmployeeTaskDto task = EmployeeTaskDto.fromUser(user, taskTemp);
         return new ResponseEntity<>(task, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Получения списка всех отделов")
-    @GetMapping
-    public ResponseEntity<List<ListOfEmployees>> List(){
-        List<ListOfEmployees> listOfEmployees = listOfEmployeeService.getAll();
+    @ApiOperation(value = "Получения списка всех задач для статистики")
+    @GetMapping("{userId}")
+    public ResponseEntity<List<StatisticDto>> List(@PathVariable("userId") long userId){
+        List<ListOfEmployees> listOfEmployees = listOfEmployeeService.statistic(userId);
+        List<StatisticDto> statisticDtos = new ArrayList<>();
+        TaskStatus status = new TaskStatus();
+        long id;
+        for(int i =0;i<listOfEmployees.size();i++){
+            id = listOfEmployees.get(i).getTaskStatusId();
+            status = taskStatus.getOne(id);
+            statisticDtos.add(StatisticDto.fromStatisticDto(listOfEmployees.get(i).getUpdateDate(),status.getName()));
+        }
         if(listOfEmployees.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(listOfEmployees, HttpStatus.OK);
+        return new ResponseEntity<>(statisticDtos, HttpStatus.OK);
     }
 
     @ApiOperation(value = "Создание отдела")

@@ -1,6 +1,9 @@
 package com.riatServer.controller;
 
 import com.riatServer.domain.DepartmentStaff;
+import com.riatServer.dto.DepartmentStaffDto;
+import com.riatServer.repo.MessagesRepo;
+import com.riatServer.service.Impl.UserServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
@@ -10,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.riatServer.repo.DepartmentStaffsRepo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Api(description = "Операции по взаимодействию с составом отдела")
@@ -17,11 +21,15 @@ import java.util.List;
 @RequestMapping("departmentStaff")
 public class DepartmentStaffController {
     private final DepartmentStaffsRepo departmentStaffRepo;
+    private final UserServiceImpl userService;
+    private final MessagesRepo messagesRepo;
 
     @Autowired
-    public DepartmentStaffController(DepartmentStaffsRepo departmentStaffsRepo)
+    public DepartmentStaffController(DepartmentStaffsRepo departmentStaffsRepo, UserServiceImpl userService, MessagesRepo messagesRepo)
     {
         this.departmentStaffRepo = departmentStaffsRepo;
+        this.userService = userService;
+        this.messagesRepo = messagesRepo;
     }
 
     @ApiOperation(value = "Получения списка всех составов отделов")
@@ -32,6 +40,21 @@ public class DepartmentStaffController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(departmentStaffs, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "Получения информации об 1 отделе")
+    @GetMapping("{userId}")
+    public ResponseEntity<List<DepartmentStaffDto>> List(@PathVariable("userId") Long userId){
+        long departmentId = departmentStaffRepo.userDepartmentId(userId);
+        List<DepartmentStaff> departmentStaffs = departmentStaffRepo.userDepartmentList(departmentId, userId);
+        List<DepartmentStaffDto> departmentStaffDtos = new ArrayList<>();
+        for(int i =0;i<departmentStaffs.size();i++){
+            departmentStaffDtos.add(DepartmentStaffDto.fromDepartmentStaff(userService.getById(departmentStaffs.get(i).getUserId()),messagesRepo.userMsg(departmentStaffs.get(i).getUserId())));
+        }
+        if(departmentStaffs.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(departmentStaffDtos, HttpStatus.OK);
     }
 
     @ApiOperation(value = "Создание состава отдела")

@@ -2,6 +2,7 @@ package com.riatServer.service.Impl;
 
 import com.riatServer.domain.*;
 import com.riatServer.domain.Task;
+import com.riatServer.dto.EmployeeTaskDto;
 import com.riatServer.exception.ServiceException;
 import com.riatServer.repo.*;
 import com.riatServer.service.EntityService;
@@ -70,17 +71,21 @@ public class TaskServiceImpl implements TaskService, EntityService<Task, Long> {
 
     @Override
     public void changeTaskProgress(Long taskId, Long taskStatusId, Long userId) {
+
         ListOfEmployees listOfEmployees = listOfEmployeesRepo.changeTaskStatus(taskId, userId);
         TaskStatus taskStatus = taskStatusRepo.findById(taskStatusId).orElse(null);
         listOfEmployees.setUpdateDate(LocalDateTime.now());
         listOfEmployees.setTaskStatusId(taskStatusId);
         listOfEmployees.setTaskStatus_id(taskStatus);
+        if(taskStatusId==2){
+            listOfEmployees.setActive(false);
+        }
         listOfEmployeesRepo.save(listOfEmployees);
     }
 
 
     @Override
-    public List<Task> listOfAllActiveTaskByEmployee(Long userId)
+    public List<EmployeeTaskDto> listOfAllActiveTaskByEmployee(Long userId)
     {
         return listOfTaskToEmployee(userId, true);
     }
@@ -91,7 +96,7 @@ public class TaskServiceImpl implements TaskService, EntityService<Task, Long> {
     }
 
     @Override
-    public List<Task> listOfAllInactiveTaskByEmployee(Long userId) {
+    public List<EmployeeTaskDto> listOfAllInactiveTaskByEmployee(Long userId) {
 
         return listOfTaskToEmployee(userId, false);
     }
@@ -105,13 +110,9 @@ public class TaskServiceImpl implements TaskService, EntityService<Task, Long> {
     public List<Task> getAllSubTaskToTask(Long taskId) {
         List<Long> subtasksId =  listOfTasksRepo.allSubTaskToTask(taskId);
         List<Task> tasks = new ArrayList<Task>();
-        System.out.println(subtasksId);
-
         for(int i =0;i<subtasksId.size();i++){
             tasks.add(taskRepo.findById(subtasksId.get(i)).orElse(null));
         }
-        System.out.println(subtasksId);
-
         return tasks;
     }
 
@@ -156,7 +157,7 @@ public class TaskServiceImpl implements TaskService, EntityService<Task, Long> {
         periodicTasksRepo.save(periodicTask);
     }
 
-    public List<Task> listOfTaskToEmployee(Long userId, boolean active)
+    public List<EmployeeTaskDto> listOfTaskToEmployee(Long userId, boolean active)
     {
         List<ListOfEmployees> listOfEmployees = listOfEmployeesRepo.listOfAllActiveTaskByEmployee(userId, active);
         List<Task> tasks = new ArrayList<Task>();
@@ -165,6 +166,11 @@ public class TaskServiceImpl implements TaskService, EntityService<Task, Long> {
             tempListOfEmpl = listOfEmployees.get(i);
             tasks.add(taskRepo.findById(tempListOfEmpl.getTaskId()).orElse(null));
         }
-        return tasks;
+        List <EmployeeTaskDto> employeeTaskDto = new ArrayList<>();
+        for(int i=0;i<listOfEmployees.size();i++){
+            //System.out.println();
+            employeeTaskDto.add(EmployeeTaskDto.fromUser(listOfEmployees.get(i),tasks.get(i)));
+        }
+        return employeeTaskDto;
     }
 }

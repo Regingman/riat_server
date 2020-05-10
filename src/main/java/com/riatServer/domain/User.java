@@ -25,6 +25,15 @@ public class User implements Serializable {
     private String name;
 
     @Column(updatable = true, nullable = true)
+    private String firstName;
+
+    @Column(updatable = true, nullable = true)
+    private String lastName;
+
+    @Column(updatable = true, nullable = true)
+    private String patronymic;
+
+    @Column(updatable = true, nullable = true)
     private String password;
 
     @Column(updatable = true, nullable = true)
@@ -153,5 +162,29 @@ public class User implements Serializable {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
     }
 }

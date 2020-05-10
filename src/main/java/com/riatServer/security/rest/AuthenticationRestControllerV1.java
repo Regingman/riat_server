@@ -33,6 +33,7 @@ public class AuthenticationRestControllerV1 {
 
     private final UsersRepo usersRepo;
 
+
     @Autowired
     public AuthenticationRestControllerV1(AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider, UserServiceImpl userService, UsersRepo usersRepo) {
         this.authenticationManager = authenticationManager;
@@ -62,6 +63,9 @@ public class AuthenticationRestControllerV1 {
             response.put("id", user.getId());
             response.put("username", username);
             response.put("token", token);
+            response.put("firstName", user.getFirstName());
+            response.put("lastName", user.getLastName());
+            response.put("patronymic", user.getPatronymic());
             System.out.println(user + "\n" + username+"\n");
 
             return ResponseEntity.ok(response);

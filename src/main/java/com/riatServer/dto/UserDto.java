@@ -10,13 +10,19 @@ public class UserDto {
     private Long id;
     private String username;
     private String telephone;
+    private String firstName;
+    private String lastName;
+    private String patronymic;
+
 
     public User toUser(){
         User user = new User();
         user.setId(id);
         user.setName(username);
         user.setTelephon(telephone);
-
+        user.setPatronymic(patronymic);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
         return user;
     }
 
@@ -25,7 +31,9 @@ public class UserDto {
         userDto.setId(user.getId());
         userDto.setUsername(user.getName());
         userDto.setTelephone(user.getTelephone());
-
+        userDto.setFirstName(user.getFirstName());
+        userDto.setPatronymic(user.getPatronymic());
+        userDto.setLastName(user.getLastName());
         return userDto;
     }
 }

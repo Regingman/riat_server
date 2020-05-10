@@ -30,6 +30,10 @@ public class ListOfEmployeeServiceImpl implements ListOfEmployeeService, EntityS
         return listOfEmployeesRepo.findAll();
     }
 
+    public List<ListOfEmployees> statistic(long userId) {
+        return listOfEmployeesRepo.statistic(userId);
+    }
+
     @Override
     public ListOfEmployees getById(Long id) {
         return listOfEmployeesRepo.findById(id).orElse(null);
