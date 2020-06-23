@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="riat_server" />
         <module name="riat" />
+        <module name="riat_server" />
       </profile>
     </annotationProcessing>
   </component>
