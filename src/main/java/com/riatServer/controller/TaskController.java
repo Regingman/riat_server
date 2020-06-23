@@ -4,8 +4,10 @@ import com.riatServer.domain.ListOfEmployees;
 import com.riatServer.domain.Task;
 import com.riatServer.domain.User;
 import com.riatServer.dto.EmployeeTaskDto;
+import com.riatServer.dto.TaskSaveDto;
 import com.riatServer.exception.ServiceException;
 import com.riatServer.repo.TasksRepo;
+import com.riatServer.repo.UsersRepo;
 import com.riatServer.service.Impl.ListOfEmployeeServiceImpl;
 import com.riatServer.service.Impl.TaskServiceImpl;
 import com.riatServer.service.Impl.UserServiceImpl;
@@ -37,6 +39,9 @@ public class TaskController {
     @Autowired
     ListOfEmployeeServiceImpl listOfEmployeeService;
 
+    @Autowired
+    UsersRepo userService;
+
 
     @ApiOperation(value = "Получения списка всех задач")
     @GetMapping
@@ -63,7 +68,8 @@ public class TaskController {
         if(user == null){
             user = listOfEmployeeService.taskInfo(userId, false, id);
         }
-        EmployeeTaskDto taskUser = EmployeeTaskDto.fromUser(user, task);
+        User tempUser = userService.getOne(user.getOwnerId());
+        EmployeeTaskDto taskUser = EmployeeTaskDto.fromUser(user, task, tempUser);
         System.out.println(user);
         return new ResponseEntity<>(taskUser, HttpStatus.OK);
     }
@@ -82,7 +88,7 @@ public class TaskController {
 
 
     @ApiOperation(value = "Создание подзадачи для задачи")
-    @PostMapping("subTask/{id}")
+    @PostMapping("subTask/{id}/{taskId}")
     public ResponseEntity<Task> createSubTask(@PathVariable("id") Long taskId, @RequestBody Task task){
         taskService.addSubTaskToTask(task,taskId);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -136,12 +142,13 @@ public class TaskController {
 
     @ApiOperation(value = "Создание задачи")
     @PostMapping
-    public ResponseEntity<Task> create(@RequestBody Task  task){
+    public ResponseEntity<Task> create(@RequestBody TaskSaveDto task){
+        System.out.println(task);
         if(task == null){
             return   new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        taskService.create(task);
-        return  new ResponseEntity<>(task, HttpStatus.CREATED);
+        Task tempTask = taskService.createTask(task);
+        return  new ResponseEntity<>(tempTask, HttpStatus.CREATED);
     }
 
     @ApiOperation(value = "Обновление задачи")

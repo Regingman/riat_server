@@ -42,6 +42,9 @@ public class User implements Serializable {
     @Column(updatable = false, insertable = false, nullable = false, name = "position_id")
     private  long positionId;
 
+    @Column(updatable = false, insertable = false, nullable = false, name = "fileName")
+    private  String fileName;
+
     private boolean isEnabled;
 
     @ManyToOne
@@ -174,6 +177,15 @@ public class User implements Serializable {
 
     public String getLastName() {
         return lastName;
+    }
+
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public void setLastName(String lastName) {

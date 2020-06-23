@@ -13,16 +13,20 @@ public class UserDto {
     private String firstName;
     private String lastName;
     private String patronymic;
+    private Long position;
+    private String fileName;
 
 
     public User toUser(){
         User user = new User();
         user.setId(id);
+        user.setFileName(fileName);
         user.setName(username);
         user.setTelephon(telephone);
         user.setPatronymic(patronymic);
         user.setFirstName(firstName);
         user.setLastName(lastName);
+        user.setPositionId(position);
         return user;
     }
 
@@ -34,6 +38,8 @@ public class UserDto {
         userDto.setFirstName(user.getFirstName());
         userDto.setPatronymic(user.getPatronymic());
         userDto.setLastName(user.getLastName());
+        userDto.setPosition(user.getPositionId());
+        userDto.setFileName(user.getFileName());
         return userDto;
     }
 }

@@ -1,6 +1,7 @@
 package com.riatServer.controller;
 
 import com.riatServer.domain.Department;
+import com.riatServer.dto.DepartmentListDto;
 import com.riatServer.repo.DepartmentsRepo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -9,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sun.swing.SwingUtilities2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Api(description = "Операции по взаимодействию с отделами")
@@ -26,12 +29,16 @@ public class DepartmentController {
 
     @ApiOperation(value = "Получения списка всех отделов")
     @GetMapping
-    public ResponseEntity<List<Department>> List(){
+    public ResponseEntity<List<DepartmentListDto>> List(){
         List<Department> departments = departmentRepo.findAll();
+        List<DepartmentListDto> dep = new ArrayList<>();
+        for(int i=0;i<departments.size();i++){
+            dep.add(DepartmentListDto.fromJson(departments.get(i)));
+        }
         if(departments.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(departments, HttpStatus.OK);
+        return new ResponseEntity<>(dep, HttpStatus.OK);
     }
 
     @ApiOperation(value = "Создание отдела")

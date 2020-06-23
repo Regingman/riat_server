@@ -2,6 +2,7 @@ package com.riatServer.controller;
 
 import com.riatServer.domain.DepartmentStaff;
 import com.riatServer.dto.DepartmentStaffDto;
+import com.riatServer.dto.EmployeeListDto;
 import com.riatServer.repo.MessagesRepo;
 import com.riatServer.service.Impl.UserServiceImpl;
 import io.swagger.annotations.Api;
@@ -34,13 +35,18 @@ public class DepartmentStaffController {
 
     @ApiOperation(value = "Получения списка всех составов отделов")
     @GetMapping
-    public ResponseEntity<List<DepartmentStaff>> List(){
+    public ResponseEntity<List<EmployeeListDto>> List(){
         List<DepartmentStaff> departmentStaffs = departmentStaffRepo.findAll();
+        List<EmployeeListDto> employeeListDtos = new ArrayList<>();
+        for(int i =0;i<departmentStaffs.size();i++){
+            employeeListDtos.add(EmployeeListDto.fromJson(userService.getById(departmentStaffs.get(i).getUserId()), departmentStaffs.get(i)));
+        }
         if(departmentStaffs.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(departmentStaffs, HttpStatus.OK);
+        return new ResponseEntity<>(employeeListDtos, HttpStatus.OK);
     }
+
 
     @ApiOperation(value = "Получения информации об 1 отделе")
     @GetMapping("{userId}")

@@ -13,4 +13,10 @@ public interface DepartmentStaffsRepo extends JpaRepository<DepartmentStaff, Lon
 
     @Query("select u.departmentId from DepartmentStaff u where  u.userId = ?1")
     long userDepartmentId(Long userId);
+
+    @Query("select u.userId from DepartmentStaff u where u.departmentId = ?1")
+    List<Long> userAllDep(Long departmentId);
+
+    @Query("select u.departmentId from DepartmentStaff u where u.userId = ?1")
+    Long userDep(Long departmentId);
 }

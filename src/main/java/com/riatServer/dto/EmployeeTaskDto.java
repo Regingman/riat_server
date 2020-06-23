@@ -3,6 +3,7 @@ package com.riatServer.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.riatServer.domain.ListOfEmployees;
 import com.riatServer.domain.Task;
+import com.riatServer.domain.User;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -23,6 +24,9 @@ public class EmployeeTaskDto {
     LocalDateTime termDate;
     LocalDateTime createDate;
     LocalDateTime updateDate;
+    String fileName;
+    String firstName;
+    String LastName;
 
     public EmployeeTaskDto toUser(){
         EmployeeTaskDto user = new EmployeeTaskDto();
@@ -41,7 +45,7 @@ public class EmployeeTaskDto {
         return user;
     }
 
-    public static EmployeeTaskDto fromUser(ListOfEmployees taskEmployee, Task task) {
+    public static EmployeeTaskDto fromUser(ListOfEmployees taskEmployee, Task task, User user) {
         EmployeeTaskDto employeeTaskDto = new EmployeeTaskDto();
         employeeTaskDto.setActive(taskEmployee.isActive());
         employeeTaskDto.setId(taskEmployee.getId());
@@ -51,13 +55,14 @@ public class EmployeeTaskDto {
         employeeTaskDto.setUserId(taskEmployee.getUserId());
         employeeTaskDto.setTaskStatusId(taskEmployee.getTaskStatusId());
         employeeTaskDto.setOwnerId(taskEmployee.getOwnerId());
-
         employeeTaskDto.setDescription(task.getDescription());
         employeeTaskDto.setProcent(task.getProcent());
         employeeTaskDto.setTermDate(task.getTermDate());
         employeeTaskDto.setName(task.getName());
         employeeTaskDto.setTemplateTask(task.isTemplateTask());
-
+        employeeTaskDto.setFileName(user.getFileName());
+        employeeTaskDto.setFirstName(user.getFirstName());
+        employeeTaskDto.setLastName(user.getLastName());
         return employeeTaskDto;
     }
 

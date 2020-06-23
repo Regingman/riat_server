@@ -3,6 +3,7 @@ package com.riatServer.service.Impl;
 import com.riatServer.domain.*;
 import com.riatServer.domain.Task;
 import com.riatServer.dto.EmployeeTaskDto;
+import com.riatServer.dto.TaskSaveDto;
 import com.riatServer.exception.ServiceException;
 import com.riatServer.repo.*;
 import com.riatServer.service.EntityService;
@@ -29,6 +30,10 @@ public class TaskServiceImpl implements TaskService, EntityService<Task, Long> {
     MarksRepo marksRepo;
     @Autowired
     TaskStatusRepo taskStatusRepo;
+    @Autowired
+    UsersRepo usersRepo;
+    @Autowired
+
 
     @Override
     public List<Task> getAll() {
@@ -51,6 +56,37 @@ public class TaskServiceImpl implements TaskService, EntityService<Task, Long> {
         task.setCreateDate(LocalDateTime.now());
         task.setUpdateDate(LocalDateTime.now());
         return taskRepo.save(task);
+    }
+
+
+    public Task createTask(TaskSaveDto task) {
+        Task tempTask = new Task();
+        tempTask.setName(task.getName());
+        tempTask.setDescription(task.getDescription());
+        tempTask.setTemplateTask(false);
+        tempTask.setProcent(0);
+        tempTask.setTermDate(task.getOwnDate());
+        tempTask.setCreateDate(LocalDateTime.now());
+        tempTask.setUpdateDate(LocalDateTime.now());
+        Task newTask = taskRepo.save(tempTask);
+
+        for(int i =0;i<task.getUser_id().size();i++){
+            ListOfEmployees tempTaskOflist = new ListOfEmployees();
+            tempTaskOflist.setUpdateDate(LocalDateTime.now());
+            tempTaskOflist.setCreateDate(LocalDateTime.now());
+            tempTaskOflist.setOwnerId(task.getOwner_id());
+            tempTaskOflist.setActive(true);
+            tempTaskOflist.setUserId(task.getUser_id().get(i));
+            tempTaskOflist.setTaskStatusId(2);
+            tempTaskOflist.setTaskId(newTask.getId());
+            tempTaskOflist.setTaskStatus_id(taskStatusRepo.getOne(1l));
+            tempTaskOflist.setUser_id(usersRepo.getOne(task.getUser_id().get(i)));
+            tempTaskOflist.setOwner_id(usersRepo.getOne(task.getOwner_id()));
+            tempTaskOflist.setTask_id(newTask);
+
+            listOfEmployeesRepo.save(tempTaskOflist);
+        }
+        return newTask;
     }
 
     @Override
@@ -77,8 +113,11 @@ public class TaskServiceImpl implements TaskService, EntityService<Task, Long> {
         listOfEmployees.setUpdateDate(LocalDateTime.now());
         listOfEmployees.setTaskStatusId(taskStatusId);
         listOfEmployees.setTaskStatus_id(taskStatus);
-        if(taskStatusId==2){
+        if(taskStatusId==2 || taskStatusId ==4){
             listOfEmployees.setActive(false);
+        }
+        else {
+            listOfEmployees.setActive(true);
         }
         listOfEmployeesRepo.save(listOfEmployees);
     }
@@ -167,9 +206,13 @@ public class TaskServiceImpl implements TaskService, EntityService<Task, Long> {
             tasks.add(taskRepo.findById(tempListOfEmpl.getTaskId()).orElse(null));
         }
         List <EmployeeTaskDto> employeeTaskDto = new ArrayList<>();
+        User user = new User();
         for(int i=0;i<listOfEmployees.size();i++){
+            //System.out.println(listOfTasksRepo.countTask(listOfEmployees.get(i).getTaskId()));
             //System.out.println();
-            employeeTaskDto.add(EmployeeTaskDto.fromUser(listOfEmployees.get(i),tasks.get(i)));
+            //if(listOfTasksRepo.countTask(listOfEmployees.get(i).getTaskId()) < 1)
+            user= usersRepo.getOne(listOfEmployees.get(i).getOwnerId());
+            employeeTaskDto.add(EmployeeTaskDto.fromUser(listOfEmployees.get(i),tasks.get(i), user));
         }
         return employeeTaskDto;
     }

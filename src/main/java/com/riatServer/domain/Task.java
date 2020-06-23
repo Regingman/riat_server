@@ -68,14 +68,6 @@ public class Task implements Serializable {
         this.description = description;
     }
 
-    public LocalDateTime getTerm() {
-        return termDate;
-    }
-
-    public void setTerm(LocalDateTime term) {
-        this.termDate = term;
-    }
-
     public LocalDateTime getCreateDate() {
         return createDate;
     }

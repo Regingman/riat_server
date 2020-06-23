@@ -14,6 +14,7 @@ import java.util.List;
 public class DepartmentStaffDto {
     long id;
     String firstName;
+    String fileName;
     List<MessageDto> messages;
 
     public DepartmentStaffDto toDepartmentStaff(){
@@ -31,7 +32,7 @@ public class DepartmentStaffDto {
 
         departmentStaffDto.setId(user.getId());
         departmentStaffDto.setFirstName(user.getFirstName());
-
+        departmentStaffDto.setFileName(user.getFileName());
         departmentStaffDto.setMessages(messageDto);
         return departmentStaffDto;
     }
